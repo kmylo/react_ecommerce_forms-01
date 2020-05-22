@@ -2,7 +2,7 @@ import React from "react";
 //withRouter highorder component HOC
 import { withRouter } from "react-router-dom";
 
-import "./Menu-item.styles.scss";
+import "./MenuItem.styles.scss";
 
 const MenuItem = ({ title, imageUrl, size, history, linkTo, match }) => {
   // console.log("dada", linkTo);
