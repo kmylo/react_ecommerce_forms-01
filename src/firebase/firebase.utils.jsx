@@ -17,6 +17,9 @@ const config = {
 };
 
 firebase.initializeApp(config);
+// if (!firebase.apps.length) {
+//   firebase.initializeApp(config);
+// }
 
 export const firestore = firebase.firestore();
 export const auth = firebase.auth();
@@ -28,11 +31,15 @@ export const signInWithGoogle = () => auth.signInWithPopup(provider);
 export const createUserProfileDocument = async (userAuth, additionalData) => {
   if (!userAuth) return;
 
+  // console.log(firestore.doc("users/2131DF"));
+
   // Get a reference to the place in the database where the user is stored
   const userRef = firestore.doc(`users/${userAuth.uid}`);
 
+  //The snapshot represent data
   const snapshot = await userRef.get();
-
+  console.log(snapshot);
+  //check not make lot of users into APP firebase
   if (!snapshot.exists) {
     const { displayName, email } = userAuth;
     const createdAt = new Date();
@@ -48,6 +55,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
     }
   }
 
+  //return userRef;
   return getUserDocumentRef(userAuth.uid);
 };
 
