@@ -1,7 +1,5 @@
 import { UserActionTypes } from "./user.types";
 
-export const getCurrentUser = state => state.user.currentUser;
-
 const INITIAL_STATE = {
   currentUser: null
 };
