@@ -22,8 +22,8 @@ export default class App extends Component {
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
         userRef.onSnapshot(snapshot => {
-          console.log(snapshot);
-          console.log(snapshot.data());
+          // console.log(snapshot);
+          // console.log(snapshot.data());
           this.setState({
             currentUser: {
               id: snapshot.id,
