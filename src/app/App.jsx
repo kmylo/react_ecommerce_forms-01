@@ -30,7 +30,7 @@ export default class App extends Component {
               ...snapshot.data()
             }
           });
-          console.log("dis", this.state);
+          //console.log("dis", this.state);
         });
         // console.log(user);
       }
