@@ -1,8 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import { connect } from "react-redux"; //HOC
 import { auth } from "../../firebase/firebase.utils";
-
 import { ReactComponent as Logo } from "../../assets/crown.svg";
 
 import "./Header.scss";
@@ -33,12 +32,19 @@ const Header = ({ currentUser }) => {
             SIGN IN
           </Link>
         )}
-        <div className="option" onClick={() => auth.signOut()}>
+        <div hidden={true} className="option" onClick={() => auth.signOut()}>
           SIGN OUT
+          {/* for fake purpose */}
         </div>
       </div>
     </div>
   );
 };
 
-export default Header;
+//state is the toplevel rootreducer
+const mapStateToProps = state => ({
+  currentUser: state.user.currentUser
+});
+
+// connect HOC
+export default connect(mapStateToProps)(Header);
