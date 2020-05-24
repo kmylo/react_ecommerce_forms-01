@@ -5,20 +5,23 @@ import { CustomButton } from "../CustomButton";
 
 import { signInWithGoogle } from "../../firebase/firebase.utils";
 
-import "./Sign_in.scss";
+import "./SignIn.scss";
 
 class SignIn extends Component {
   state = {
     email: "",
     password: ""
   };
+  handleChange = event => {
+    // console.log("new value", event.target.value);
+    // console.log("new target", event.target);
+    const { value, name } = event.target;
+    //black magic combined: destructuring x 2
+    this.setState({ [name]: value });
+  };
   handleSubmit = event => {
     event.preventDefault();
     this.setState({ email: "", password: "" });
-  };
-  handleChange = event => {
-    const { value, name } = event.target;
-    this.setState({ [name]: value });
   };
   render() {
     const { email, password } = this.state;
@@ -35,7 +38,7 @@ class SignIn extends Component {
             label="email"
             required
           />
-          <label>Email</label>
+          {/* <label>Email</label> */}
           <FormInput
             name="password"
             type="password"

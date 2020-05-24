@@ -1,16 +1,15 @@
 import React from "react";
 
-import { SignIn } from "../../components/Sign_in";
+import { SignIn } from "../../components/SignIn";
+import { SignUp } from "../../components/SignUp";
 
 import "./SignIn_and_SignUp.scss";
 
-const SignInAndSignUpPage = () => {
-  // console.log("dada", linkTo);
-  return (
-    <div className="sign-in">
-      <SignIn className="sign-in-wrapp" />
-    </div>
-  );
-};
+const SignInAndSignUpPage = () => (
+  <div className="sign-in-and-sign-up">
+    <SignIn />
+    <SignUp />
+  </div>
+);
 
 export default SignInAndSignUpPage;
